@@ -3,7 +3,7 @@ import { mkdir, readdir, stat, unlink } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import dotenv from 'dotenv';
-import { logger } from '../src/utils/logger.js';
+import { logger } from '../src/utils/logger.js'; 
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 dotenv.config({ path: path.join(__dirname, '..', '.env') });
@@ -148,3 +148,26 @@ run().catch((error) => {
   });
   process.exit(1);
 });
+``` # Discord VC Bot – Music Player
+
+A Discord bot that plays music from YouTube in voice channels.
+
+## Features
+- `/play <song or URL>` – play music
+- `/skip` – skip current song
+- `/pause` / `/resume`
+- `/stop` – clear queue and leave
+- `/queue` – show upcoming songs
+- `/volume <0-100>`
+- `/leave` – force leave
+
+## Setup
+1. Clone and `npm install`
+2. Create `.env` with your bot token, client ID, guild ID
+3. Install **ffmpeg** globally (see instructions)
+4. Run `npm run deploy` to register slash commands
+5. Run `npm start` to start the bot
+
+## Requirements
+- Node.js v16.9+
+- ffmpeg ```
